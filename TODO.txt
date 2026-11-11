@@ -1,0 +1,164 @@
+========================================================================
+REMINDER TO MYSELF (READ FIRST)
+========================================================================
+Hey future me — keep pushing yourself.
+Do not let the big final system stop you from launching the first real
+version people can actually click and test. Start small, cut the noise,
+finish the Lite Demo, put it live on the web, and keep building one real
+step at a time. You already mapped the vision — now execute.
+========================================================================
+
+
+HALLLINE — LITE DEMO TO-DO LIST
+Project Name: HallLine
+Target: Pure static browser Lite Demo (HTML + CSS + JS, no backend yet)
+Purpose: Show the build plan & cut-down thinking process before full dev
+
+
+------------------------------------------------------------------------
+0. LAUNCH, HOSTING & DOMAIN GOALS
+------------------------------------------------------------------------
+[ ] Host the Lite Demo webpage online (e.g., GitHub Pages or static host)
+[ ] Purchase and configure the .net domain name for HallLine
+[ ] Keep branding consistent everywhere as: HallLine
+[ ] Confirm demo defaults use Godley Wildcats colors (Purple & Gold)
+
+
+------------------------------------------------------------------------
+1. GLOBAL LITE DEMO UI RULES
+------------------------------------------------------------------------
+[ ] Customizable CSS theme variables (default preset: Godley Wildcats)
+[ ] Fixed top header across screens:
+      - NO "Live UTC" badge/icon
+      - NO "Floor" label on student/teacher classroom headers
+[ ] Responsive layout ONLY for Student Chromebook + Teacher/Admin Mobile
+      - NO Student Mobile view (students cannot use phones in class)
+[ ] Zero external CDN dependencies (system fonts + inline SVGs only)
+
+
+------------------------------------------------------------------------
+2. ENTRY SCREEN — FAKE SIGN-IN HUB (index.html)
+------------------------------------------------------------------------
+[ ] Simple "Sign In" landing card for quick demo testing
+[ ] One-click Demo View redirect options:
+      [ ] Open Student Kiosk
+      [ ] Open Teacher / Staff View
+      [ ] Open Administrator View
+
+
+------------------------------------------------------------------------
+3. STUDENT KIOSK FEATURES (kiosk.html — Chromebook 1366x768)
+------------------------------------------------------------------------
+[ ] Optional Pre-Kiosk Fake Google Teacher Sign-In ("Unlock Room 204")
+[ ] Left Half Step 1 — Fake Sign In (NO manual ID typing, NO NFC):
+      [ ] Fake USB Barcode Scan action button (simulates ID scan)
+      [ ] Chromebook Webcam scanner preview layer toggle
+      [ ] School Email fallback input (@students.godleyisd.net)
+      [ ] Static, non-clickable statement:
+          "Forgot ID & email? Ask your teacher"
+          (just a plain statement — not a clickable button)
+[ ] Left Half Step 2 — Slide-Up Destinations Sheet (with fade):
+      [ ] Collapse Sign-In into a compact verified student bar
+      [ ] Keep the top header fixed in place
+      [ ] Show the exact 6 destination options:
+            - Boys Restroom
+            - Girls Restroom
+            - Nurse Office
+            - Main Office
+            - Counselor
+            - Other (text input to type where the student is going)
+      [ ] Confirm Pass button -> adds student directly to Active Passes
+[ ] Right Half — Active Passes Panel (always visible):
+      [ ] Show student name/info + destination + "I'm Back" button
+      [ ] NO countdown/elapsed timer shown on Student Kiosk
+      [ ] NO status pills (Active/Warning/Overdue) shown on Student Kiosk
+      [ ] Verified "I'm Back" Return prompt when clicked:
+            - Require student to Sign In, show/scan ID, or let teacher know
+[ ] NO Queue (cut completely out of the Lite Demo)
+
+
+------------------------------------------------------------------------
+4. TEACHER FEATURES (dashboard.html — Desktop & Mobile)
+------------------------------------------------------------------------
+--- Desktop ---
+[ ] Top summary stats:
+      [ ] Current Students OUT counter
+      [ ] Passes Given Today counter
+      [ ] Room Checkout Status badge (Active / Paused / Locked)
+[ ] Room Controls:
+      [ ] Pause Room toggle button
+      [ ] Lock Kiosk toggle button
+      [ ] Issue Pass button (look up student & enter destination for them
+          when they could not scan/sign in on the kiosk)
+[ ] Detailed Current Students Out table:
+      [ ] Student name + sign-in method
+      [ ] Destination (+ custom "Other" note)
+      [ ] Elapsed time gone (staff-only view)
+      [ ] Status badge (Active / Check Time / Overdue)
+      [ ] Quick actions: +2m, End Pass (also confirms "let teacher know")
+
+--- Mobile (Staff Phone View) ---
+[ ] Mobile Bottom/Top Navigation bar:
+      [ ] My Class
+      [ ] Hall Check
+      [ ] Issue Pass
+[ ] My Class tab: mobile cards for Current Students Out (+2m, End Pass)
+    plus Pause Room control
+[ ] Hall Check tab: quick student search / camera scan simulation
+    showing VALID PASS or NO PASS FOUND
+[ ] Issue Pass tab: search student, pick destination (or type "Other"),
+    and submit pass straight to Active Passes
+
+
+------------------------------------------------------------------------
+5. HALLWAY CHECK VIEW (Staff Mobile Spot-Check)
+------------------------------------------------------------------------
+[ ] Search by student name / @students email or tap demo Scan ID
+[ ] Clear status cards:
+      [ ] VALID PASS (green) — shows origin room, destination, time gone
+      [ ] NO PASS FOUND (red) — alerts hallway staff
+
+
+------------------------------------------------------------------------
+6. ADMINISTRATOR FEATURES (admin.html — Desktop & Mobile)
+------------------------------------------------------------------------
+[ ] Hamburger ("Burger") Sidebar Navigation Drawer (Desktop & Mobile):
+      [ ] Overview
+            - Live campus Students Out count & Active Rooms summary
+            - Emergency Lockdown toggle button (freezes demo kiosks)
+      [ ] Users & Groups
+            - Demo list of sample students & teachers
+            - Admin Room Floor Groups view (grouped rooms kept hidden on kiosks)
+      [ ] Destinations & Limits
+            - View/toggle the 6 destinations & basic room checkout cap
+            - (NO queue / restroom waitlist engine in Lite Demo)
+      [ ] Analytics
+            - Simple static/sample passes-by-period summary chart
+      [ ] Settings
+            - Campus Theme & Brand Colors customizer
+              (Godley Wildcats preset + primary/accent color pickers)
+            - Campus name & demo hardware policy toggles
+
+
+------------------------------------------------------------------------
+7. INTENTIONALLY CUT FROM LITE DEMO (KEPT OUT TO SHIP FAST)
+------------------------------------------------------------------------
+[X] NO Queue / FIFO Restroom Waitlist (removed for Lite Demo simplicity)
+[X] NO real backend / SQLite / PostgreSQL yet (use local browser state
+    so the Lite Demo can be hosted statically on GitHub Pages / .net)
+[X] NO real Google Workspace or Microsoft Entra ID OAuth server
+[X] NO real One-to-One external SIS / Org-ID database connection
+[X] NO NFC badge support (Chromebooks are not NFC compatible)
+[X] NO Student Mobile screen
+[X] NO Bell Schedule blackouts or Encounter Prevention rules yet
+
+
+------------------------------------------------------------------------
+8. FUTURE UPGRADES (AFTER LITE DEMO IS HOSTED ON .NET)
+------------------------------------------------------------------------
+[ ] Add SQLite local demo backend -> PostgreSQL production database
+[ ] Add FIFO Queue + gender/group restroom concurrency limits
+[ ] Connect real Google Workspace / Microsoft Entra ID SSO & domain import
+[ ] Wire pluggable One-to-One Org-ID lookup adapter
+[ ] Add real-time SSE/WebSocket sync across classrooms & staff phones
+========================================================================
