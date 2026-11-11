@@ -1,14 +1,3 @@
-========================================================================
-REMINDER TO MYSELF (READ FIRST)
-========================================================================
-Hey future me — keep pushing yourself.
-Do not let the big final system stop you from launching the first real
-version people can actually click and test. Start small, cut the noise,
-finish the Lite Demo, put it live on the web, and keep building one real
-step at a time. You already mapped the vision — now execute.
-========================================================================
-
-
 HALLLINE — LITE DEMO TO-DO LIST
 Project Name: HallLine
 Target: Pure static browser Lite Demo (HTML + CSS + JS, no backend yet)
