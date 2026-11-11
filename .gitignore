@@ -1,0 +1,25 @@
+# Environment variables & credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# SQLite Demo database files
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Dependencies & build output
+node_modules/
+dist/
+build/
+coverage/
+
+# Logs & OS artifacts
+*.log
+.DS_Store
+Thumbs.db
