@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HallLine — Administrator Console</title>
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/layout.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <link rel="stylesheet" href="./styles/views/admin.css">
+</head>
+<body class="page-admin">
+  <header class="admin-header">
+    <button type="button" class="burger-toggle" aria-expanded="false" aria-controls="admin-sidebar">&#9776;</button>
+  </header>
+
+  <div class="admin-shell">
+    <aside id="admin-sidebar" class="admin-sidebar">
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#users-groups">Users &amp; Groups</a>
+        <a href="#destinations-limits">Destinations &amp; Limits</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#settings">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <section id="overview"></section>
+      <section id="users-groups"></section>
+      <section id="destinations-limits"></section>
+      <section id="analytics"></section>
+      <section id="settings"></section>
+    </main>
+  </div>
+</body>
+</html>
