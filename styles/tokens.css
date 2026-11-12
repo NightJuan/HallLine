@@ -1,0 +1,32 @@
+:root {
+  /* Brand */
+  --color-brand-purple: #3b1d6a;
+  --color-brand-gold: #f5b800;
+
+  /* Role Colors */
+  --color-student: #2563eb;
+  --color-teacher: #16a34a;
+  --color-admin: #dc2626;
+
+  /* Neutrals */
+  --color-bg: #f4f5f8;
+  --color-card-bg: #ffffff;
+  --color-text-main: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+
+  /* Typography */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadows & Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 18px 36px rgba(0, 0, 0, 0.16);
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+}

@@ -11,17 +11,47 @@
   <link rel="stylesheet" href="./styles/views/sign-in.css">
 </head>
 <body class="page-sign-in">
-  <header class="site-header"></header>
+  <header class="site-header">
+    <div class="logo-container">
+      <div class="logo-mark">H</div>
+      <div class="logo-text">
+        <h2 class="logo-title">Hall Line</h2>
+        <span class="logo-subtitle">Godley High School</span>
+      </div>
+    </div>
+  </header>
 
   <main class="sign-in-shell">
-    <section class="sign-in-card">
-      <h1>Sign In</h1>
-      <nav class="demo-role-links">
-        <a href="./kiosk.html">Student Kiosk</a>
-        <a href="./dashboard.html">Teacher / Staff</a>
-        <a href="./admin.html">Administrator</a>
-      </nav>
-    </section>
+    <div class="sign-in-header">
+      <h1 class="sign-in-title">Sign In</h1>
+      <p class="sign-in-subtitle">Select your portal to continue</p>
+    </div>
+
+    <div class="role-cards">
+      <a href="./kiosk.html" class="role-card role-card--student">
+        <div class="role-avatar-wrapper">
+          <img src="./assets/user-icon.png" alt="Student Kiosk" class="role-avatar">
+        </div>
+        <h2 class="role-title">Student Kiosk</h2>
+        <span class="role-tag">Student</span>
+      </a>
+
+      <a href="./dashboard.html" class="role-card role-card--teacher">
+        <div class="role-avatar-wrapper">
+          <img src="./assets/user-icon.png" alt="Teacher" class="role-avatar">
+        </div>
+        <h2 class="role-title">Teacher</h2>
+        <span class="role-tag">Teacher / Staff</span>
+      </a>
+
+      <a href="./admin.html" class="role-card role-card--admin">
+        <div class="role-avatar-wrapper">
+          <img src="./assets/user-icon.png" alt="Administrator" class="role-avatar">
+        </div>
+        <h2 class="role-title">Administrator</h2>
+        <span class="role-tag">Admin</span>
+      </a>
+    </div>
   </main>
 </body>
 </html>
