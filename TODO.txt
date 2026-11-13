@@ -28,42 +28,35 @@ Purpose: Show the build plan & cut-down thinking process before full dev
 ------------------------------------------------------------------------
 2. ENTRY SCREEN — FAKE SIGN-IN HUB (index.html)
 ------------------------------------------------------------------------
-[ ] Simple "Sign In" landing card for quick demo testing
-[ ] One-click Demo View redirect options:
-      [ ] Open Student Kiosk
-      [ ] Open Teacher / Staff View
-      [ ] Open Administrator View
+[X] Simple "Sign In" landing card for quick demo testing
+[X] One-click Demo View redirect options:
+      [X] Open Student Kiosk
+      [X] Open Teacher / Staff View
+      [X] Open Administrator View
+[X] Extra: Add an oval shaped container on index.html so it looks like a hall pass ID
 
 
 ------------------------------------------------------------------------
 3. STUDENT KIOSK FEATURES (kiosk.html — Chromebook 1366x768)
 ------------------------------------------------------------------------
 [ ] Optional Pre-Kiosk Fake Google Teacher Sign-In ("Unlock Room 204")
-[ ] Left Half Step 1 — Fake Sign In (NO manual ID typing, NO NFC):
-      [ ] Fake USB Barcode Scan action button (simulates ID scan)
-      [ ] Chromebook Webcam scanner preview layer toggle
-      [ ] School Email fallback input (@students.godleyisd.net)
-      [ ] Static, non-clickable statement:
-          "Forgot ID & email? Ask your teacher"
-          (just a plain statement — not a clickable button)
-[ ] Left Half Step 2 — Slide-Up Destinations Sheet (with fade):
-      [ ] Collapse Sign-In into a compact verified student bar
-      [ ] Keep the top header fixed in place
-      [ ] Show the exact 6 destination options:
-            - Boys Restroom
-            - Girls Restroom
-            - Nurse Office
-            - Main Office
-            - Counselor
-            - Other (text input to type where the student is going)
-      [ ] Confirm Pass button -> adds student directly to Active Passes
-[ ] Right Half — Active Passes Panel (always visible):
-      [ ] Show student name/info + destination + "I'm Back" button
-      [ ] NO countdown/elapsed timer shown on Student Kiosk
-      [ ] NO status pills (Active/Warning/Overdue) shown on Student Kiosk
-      [ ] Verified "I'm Back" Return prompt when clicked:
-            - Require student to Sign In, show/scan ID, or let teacher know
-[ ] NO Queue (cut completely out of the Lite Demo)
+[X] Left Half Check-Out Sign In:
+      [X] USB Barcode Scan simulation button + html5-qrcode webcam scanner
+      [X] School Email input (@students.godleyisd.net validation) + password
+      [X] Static "Ask your teacher" oval pill badge
+[X] Left Half Slide-Up Destinations Sheet (with fade):
+      [X] Collapse Sign-In into a compact verified student bar
+      [X] Keep the top header fixed in place
+      [X] Show 6 destination options (Boys, Girls, Nurse, Office, Counselor, Other)
+      [X] Open Spot vs Join Queue indicator badges
+      [X] Required "Where are you going?" input for Other
+[X] Right Half Top — Currently Out Panel:
+      [X] Student Initials circle avatar + Name + Destination + "I'm Back" button
+      [X] Scrollable container with hidden scrollbar and bottom shadow
+      [X] Dark dimmed verification modal prompt for "I'm Back"
+[X] Right Half Bottom — Destination Queue:
+      [X] FIFO waitlist with numbered position badge + "Next Up" indicator
+      [X] Turn chime sound + dimmed confirmation modal ("Checkout" or "Remove from Queue")
 
 
 ------------------------------------------------------------------------

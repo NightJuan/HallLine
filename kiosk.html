@@ -11,20 +11,175 @@
   <link rel="stylesheet" href="./styles/views/kiosk.css">
 </head>
 <body class="page-kiosk">
-  <header class="kiosk-header"></header>
+  <header class="site-header">
+    <div class="logo-container">
+      <div class="logo-mark">H</div>
+      <div class="logo-text">
+        <h2 class="logo-title">Hall Line</h2>
+        <span class="logo-subtitle">Godley High School</span>
+      </div>
+    </div>
+    <div class="header-room-info">
+      <span>Room 204</span>
+      <span>•</span>
+      <span>Mrs. Davis</span>
+    </div>
+  </header>
 
-  <section class="kiosk-setup" hidden></section>
+  <main class="kiosk-container">
+    <section class="kiosk-left">
+      <div class="signin-box" id="signinBox">
+        <div class="section-title-wrap">
+          <h1 class="section-title">Student Check-Out</h1>
+          <p class="section-desc">Sign in with your school Google account or student ID</p>
+        </div>
 
-  <main class="kiosk-grid">
-    <section class="kiosk-checkout">
-      <section class="checkout-signin"></section>
-      <section class="checkout-webcam" hidden></section>
-      <section class="checkout-destinations" hidden></section>
+        <form id="formStudentSignIn" class="signin-form" novalidate>
+          <div class="form-group">
+            <label for="inputEmail" class="form-label">Google Email</label>
+            <input type="email" id="inputEmail" class="form-input" placeholder="student@students.godleyisd.net" required autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" id="inputPassword" class="form-input" placeholder="Enter password" required autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn-primary">Sign In</button>
+
+          <div class="signin-divider">
+            <span>Forgot Your Login</span>
+          </div>
+
+          <div class="signin-actions-row">
+            <button type="button" class="btn-id-signin" id="btnIdSignIn">Sign In with ID</button>
+            <div class="pill-ask-teacher">Ask your Teacher</div>
+          </div>
+
+          <div class="signin-error" id="signinError" hidden></div>
+        </form>
+      </div>
+
+      <div class="destination-sheet" id="destinationSheet" hidden>
+        <div class="destination-header">
+          <div class="verified-student-bar">
+            <span class="verified-icon">✓</span>
+            <span class="verified-name" id="verifiedStudentName">Student Verified</span>
+            <button type="button" class="btn-cancel-signin" id="btnCancelSignIn">Cancel</button>
+          </div>
+          <h2 class="destination-title">Choose Your Destination</h2>
+          <p class="destination-desc">Select where you are heading or join the queue</p>
+        </div>
+
+        <div class="destination-grid" id="destinationGrid">
+          <button type="button" class="destination-card" data-destination="Boys Restroom">
+            <span class="dest-name">Boys Restroom</span>
+            <span class="dest-status dest-status--open">Open Spot</span>
+          </button>
+
+          <button type="button" class="destination-card" data-destination="Girls Restroom">
+            <span class="dest-name">Girls Restroom</span>
+            <span class="dest-status dest-status--open">Open Spot</span>
+          </button>
+
+          <button type="button" class="destination-card" data-destination="Nurse Office">
+            <span class="dest-name">Nurse Office</span>
+            <span class="dest-status dest-status--open">Open Spot</span>
+          </button>
+
+          <button type="button" class="destination-card" data-destination="Main Office">
+            <span class="dest-name">Main Office</span>
+            <span class="dest-status dest-status--open">Open Spot</span>
+          </button>
+
+          <button type="button" class="destination-card" data-destination="Counselor">
+            <span class="dest-name">Counselor</span>
+            <span class="dest-status dest-status--full">Join Queue</span>
+          </button>
+
+          <button type="button" class="destination-card" data-destination="Other">
+            <span class="dest-name">Other</span>
+            <span class="dest-status dest-status--open">Open Spot</span>
+          </button>
+        </div>
+
+        <div class="other-input-wrap" id="otherInputWrap" hidden>
+          <label for="inputOtherWhere" class="form-label">Where are you going?</label>
+          <div class="other-input-row">
+            <input type="text" id="inputOtherWhere" class="form-input" placeholder="e.g. Band Hall, Room 102">
+            <button type="button" class="btn-primary" id="btnConfirmOther">Confirm Pass</button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="kiosk-active-passes"></section>
+    <section class="kiosk-right">
+      <div class="panel-section panel-currently-out">
+        <div class="panel-header">
+          <h2 class="panel-title">Currently Out</h2>
+          <p class="panel-desc">Active hall passes currently in hallway</p>
+        </div>
+        <div class="out-list-wrapper" id="outListWrapper">
+          <div class="out-list" id="currentlyOutList"></div>
+        </div>
+      </div>
+
+      <div class="panel-section panel-queue">
+        <div class="panel-header">
+          <h2 class="panel-title">Destination Queue</h2>
+          <p class="panel-desc">First-come, first-served waitlist</p>
+        </div>
+        <div class="queue-list-wrapper" id="queueListWrapper">
+          <div class="queue-list" id="queueList"></div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <section class="return-verify-prompt" hidden></section>
+  <div class="modal-overlay" id="modalVerifyReturn" hidden>
+    <div class="modal-card">
+      <h3 class="modal-title">Verify Return</h3>
+      <p class="modal-desc">Confirm that <strong id="verifyReturnStudentName"></strong> has returned to class.</p>
+      
+      <div class="modal-form">
+        <div class="form-group">
+          <label for="inputVerifyPassword" class="form-label">Enter Password or Scan ID</label>
+          <input type="password" id="inputVerifyPassword" class="form-input" placeholder="Password or scan badge">
+        </div>
+        <div class="modal-buttons">
+          <button type="button" class="btn-secondary" id="btnCancelVerifyReturn">Cancel</button>
+          <button type="button" class="btn-primary" id="btnConfirmReturn">I'm Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalQueueTurn" hidden>
+    <div class="modal-card modal-card--center">
+      <div class="turn-badge">Turn Available</div>
+      <h2 class="turn-student-name" id="turnStudentName">Marcus Diaz</h2>
+      <p class="turn-question">Are you still wanting to go to <strong id="turnDestination">Counselor</strong>?</p>
+      
+      <div class="modal-buttons">
+        <button type="button" class="btn-secondary" id="btnRemoveFromQueue">Remove from Queue</button>
+        <button type="button" class="btn-primary" id="btnCheckoutFromQueue">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalWebcamScanner" hidden>
+    <div class="modal-card modal-card--scanner">
+      <h3 class="modal-title">Scan Student ID</h3>
+      <p class="modal-desc">Hold barcode up to camera or use demo test badge</p>
+      <div id="scannerReader" class="scanner-viewport"></div>
+      <div class="scanner-actions">
+        <button type="button" class="btn-secondary" id="btnDemoScanCard">Simulate Badge Scan</button>
+        <button type="button" class="btn-secondary" id="btnCloseScanner">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/html5-qrcode.min.js"></script>
+  <script src="./scripts/kiosk.js"></script>
 </body>
 </html>
